@@ -1,7 +1,6 @@
 package evalRPN;
 
 import java.util.*;
-import java.util.function.BiFunction;
 
 class Solution {
 
@@ -11,32 +10,26 @@ class Solution {
         System.out.println(result);
     }
 
-    private static final Map<String, BiFunction<Integer, Integer, Integer>> OPERATIONS = new HashMap<>();
+    public static int evalRPN(String[] tokens){
 
-    // Ensure this only gets done once for ALL test cases.
-    static {
-        OPERATIONS.put("+", (a, b) -> a + b);
-        OPERATIONS.put("-", (a, b) -> a - b);
-        OPERATIONS.put("*", (a, b) -> a * b);
-        OPERATIONS.put("/", (a, b) -> a / b);
-    }
-
-    public static int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
-
-        for (String token : tokens) {
-            if (!OPERATIONS.containsKey(token)) {
-                stack.push(Integer.valueOf(token));
-                continue;
+        for(String s: tokens){
+            if(s.equals("+")){
+                stack.push(stack.pop()+stack.pop());
+            }else if(s.equals("-")){
+                int a = stack.pop();
+                int b = stack.pop();
+                stack.push(a-b);
+            }else if(s.equals("*")){
+                stack.push(stack.pop()*stack.pop());
+            }else if(s.equals("/")){
+                int a = stack.pop();
+                int b = stack.pop();
+                stack.push(a/b);
+            }else{
+                stack.push(Integer.parseInt(s));
             }
-
-            int number2 = stack.pop();
-            int number1 = stack.pop();
-            BiFunction<Integer, Integer, Integer> operation;
-            operation = OPERATIONS.get(token);
-            int result = operation.apply(number1, number2);
-            stack.push(result);
-        }
+        }        
 
         return stack.pop();
     }
