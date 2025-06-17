@@ -14,20 +14,23 @@ public class Solution {
     }    
 
     public static int[] TwoSum(int[] nums, int target){
-        HashMap<Integer,Integer> numCount = new HashMap<>();
         
+        HashMap<Integer,Integer> indexMap = new HashMap<>();
         for(int i=0;i<nums.length;i++){
-            numCount.put(nums[i],i);
+            indexMap.put(nums[i], i);
         }
+
+        int diff = 0;
         
         for(int i=0;i<nums.length;i++){
-            int diff = target-nums[i];
+            diff = target - nums[i];
 
-            if(numCount.containsKey(diff) && numCount.get(diff)!=i){
-                return new int[]{i,numCount.get(diff)}; 
+            if(indexMap.containsKey(diff) && i!=indexMap.get(diff)){
+                return new int[]{i,indexMap.get(diff)};
             }
         }
 
-        return new int[]{};
+        return null;
+
     }
 }
