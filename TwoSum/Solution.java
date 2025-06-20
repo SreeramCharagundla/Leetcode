@@ -14,23 +14,19 @@ public class Solution {
     }    
 
     public static int[] TwoSum(int[] nums, int target){
-        
-        HashMap<Integer,Integer> indexMap = new HashMap<>();
-        for(int i=0;i<nums.length;i++){
-            indexMap.put(nums[i], i);
-        }
-
-        int diff = 0;
+        HashMap<Integer,Integer> numIndex = new HashMap<>();
         
         for(int i=0;i<nums.length;i++){
-            diff = target - nums[i];
-
-            if(indexMap.containsKey(diff) && i!=indexMap.get(diff)){
-                return new int[]{i,indexMap.get(diff)};
-            }
+            numIndex.put(nums[i],i);
         }
 
+        for(int i=0;i<nums.length;i++){
+            int diff = target - nums[i];
+
+            if(numIndex.containsKey(diff) && numIndex.get(diff)!=i)
+                return new int[]{i,numIndex.get(diff)};
+        }
+       
         return null;
-
     }
 }

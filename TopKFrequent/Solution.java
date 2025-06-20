@@ -15,17 +15,15 @@ public class Solution {
     
     }
     public static int[] topKFrequent(int [] nums, int k){
-        
-        HashMap<Integer,Integer> freqMap = new HashMap<>();
-        for(int n: nums){
-            freqMap.put(n, freqMap.getOrDefault(n,0)+1);
+        HashMap<Integer,Integer> countMap = new HashMap<>();
+        for(int num:nums){
+            countMap.put(num,countMap.getOrDefault(num, 0)+1);
         }
 
         PriorityQueue<Map.Entry<Integer,Integer>> minHeap = new PriorityQueue<>((a,b)->a.getValue()-b.getValue());
-
-        for(Map.Entry<Integer,Integer> e : freqMap.entrySet()){
-            minHeap.offer(e);
-
+       
+        for(Map.Entry<Integer,Integer> entry:countMap.entrySet()){
+            minHeap.offer(entry);
             if(minHeap.size()>k){
                 minHeap.poll();
             }
@@ -33,12 +31,9 @@ public class Solution {
 
         int[] result = new int[k];
         int i=0;
-
         while(!minHeap.isEmpty()){
             result[i++] = minHeap.poll().getKey();
         }
-        
-
         return result;
     }
 }
