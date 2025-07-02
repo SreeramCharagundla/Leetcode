@@ -1,6 +1,6 @@
 package TwoSum;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
@@ -14,19 +14,18 @@ public class Solution {
     }    
 
     public static int[] TwoSum(int[] nums, int target){
-        HashMap<Integer,Integer> numIndex = new HashMap<>();
-        
+        HashMap<Integer,Integer> indexMap = new HashMap<>();
+
         for(int i=0;i<nums.length;i++){
-            numIndex.put(nums[i],i);
+            indexMap.put(nums[i],i);
         }
 
         for(int i=0;i<nums.length;i++){
             int diff = target - nums[i];
-
-            if(numIndex.containsKey(diff) && numIndex.get(diff)!=i)
-                return new int[]{i,numIndex.get(diff)};
+            if(indexMap.containsKey(diff) && indexMap.get(diff)!=i){
+                return new int[]{i,indexMap.get(diff)};
+            }
         }
-       
         return null;
     }
 }
