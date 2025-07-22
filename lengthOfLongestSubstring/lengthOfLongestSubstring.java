@@ -5,11 +5,11 @@ import java.util.*;
 public class lengthOfLongestSubstring {
     public static void main(String[] args) {
         String s = "pwwkew";
-        int ans = lengthOfLongestSubstring(s);
+        int ans = LongestSubstring(s);
         System.out.println(ans);
     }
 
-    private static int lengthOfLongestSubstring(String s) {
+    private static int LongestSubstring(String s) {
         
         Set<Character> charSet = new HashSet<>();
         for(char c: s.toCharArray()){

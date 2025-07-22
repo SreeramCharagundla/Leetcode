@@ -1,7 +1,9 @@
 import java.util.HashSet;
 
+@SuppressWarnings("unchecked")
 class Solution {
     public boolean isValidSudoku(char[][] board) {
+        
         HashSet<Character>[] rows = new HashSet[9];
         HashSet<Character>[] cols = new HashSet[9];
         HashSet<Character>[] boxes = new HashSet[9];
