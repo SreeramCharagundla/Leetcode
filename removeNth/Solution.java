@@ -13,34 +13,31 @@ public class Solution {
     }
 
     private void removeNthfromEnd(ListNode head, int n) {
-        int length=0;
-        ListNode current = head;
-        while(current!=null){
-            length++;
-            current=current.next;
+        int len=0;
+        ListNode curr = head;
+        while(curr!=null){
+            len+=1;
+            curr=curr.next;
         }
 
-        if(length==1 && n==1){
+        if(len==1 && n==1){
             head=null;
             return;
-        }else if(length==n){
+        }else if(len==n){
             head=head.next;
             return;
         }
-        
-        int j = length-n+1;
-        System.out.println("j="+j);
-        current = head;
-        
-        for(int i=0;i<(j-2);i++){
-            System.out.println("at i="+i);
-            System.out.println("curr val = "+current.val);
-            current=current.next;
+
+        int j = len - n + 1;
+        curr = head;
+
+        for(int i=0;i<(j-1);i++){
+            curr = curr.next;
         }
 
-        ListNode tempNode = current.next.next;
-        current.next = tempNode;
+        curr.next = curr.next.next;
         
+        return;
     }
 
 
