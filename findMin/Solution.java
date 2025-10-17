@@ -1,5 +1,3 @@
-package findMin;
-
 public class Solution {
     public static void main(String[] args) {
         int nums[] = new int[]{4,5,0,1,2,3};

@@ -1,5 +1,3 @@
-package TwoSum;
-
 import java.util.*;
 
 public class Solution {

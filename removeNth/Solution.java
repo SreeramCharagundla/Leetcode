@@ -1,5 +1,3 @@
-package removeNth;
-
 public class Solution {
      public static class ListNode{
         int val;

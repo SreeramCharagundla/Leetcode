@@ -1,5 +1,3 @@
-package Syntax;
-
 import java.util.*;
 
 public class Practice {

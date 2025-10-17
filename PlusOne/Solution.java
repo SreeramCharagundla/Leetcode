@@ -1,5 +1,3 @@
-package PlusOne;
-
 public class Solution {
     public static void main(String[] args) {
         int[] digits = {1,2,3,4};

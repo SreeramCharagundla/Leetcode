@@ -1,5 +1,3 @@
-package KokoBananas;
-
 import java.util.Arrays;
 
 public class Solution {

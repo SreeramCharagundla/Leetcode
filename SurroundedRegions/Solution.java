@@ -1,5 +1,3 @@
-package SurroundedRegions;
-
 public class Solution {
     public static void main(String[] args) {
         char[][] board = {{'X','X','X','X'},

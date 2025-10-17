@@ -1,5 +1,3 @@
-package singleNumber;
-
 public class Solution {
     public int singleNumber(int[] nums) {
         int result = 0;

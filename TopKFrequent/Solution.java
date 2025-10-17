@@ -1,5 +1,3 @@
-package TopKFrequent;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;

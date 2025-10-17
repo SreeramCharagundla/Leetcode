@@ -1,5 +1,3 @@
-package NumberOfDaysBetweenTwoDates;
-
 class Solution {
 
     public static void main(String[] args) {

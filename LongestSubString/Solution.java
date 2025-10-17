@@ -1,5 +1,3 @@
-package LongestSubString;
-
 import java.util.*;
 
 public class Solution {

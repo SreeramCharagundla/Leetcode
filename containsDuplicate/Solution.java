@@ -1,5 +1,3 @@
-package containsDuplicate;
-
 import java.util.*;
 
 public class Solution {

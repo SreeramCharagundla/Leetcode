@@ -1,5 +1,3 @@
-package Resmed;
-
 public class Solution {
     public static void main(String[] args) {
         int[] prices = {44, 30, 25, 32, 35, 30, 40, 38, 15};

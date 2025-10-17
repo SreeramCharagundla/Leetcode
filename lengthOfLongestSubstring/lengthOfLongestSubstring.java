@@ -1,5 +1,3 @@
-package lengthOfLongestSubstring;
-
 import java.util.*;
 
 public class lengthOfLongestSubstring {
