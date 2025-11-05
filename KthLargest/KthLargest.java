@@ -1,20 +1,22 @@
 import java.util.PriorityQueue;
+import java.util.*;
 
 public class KthLargest {
-    PriorityQueue<Integer> minHeap;
+    List<Integer> arr;
     int k;
 
     public KthLargest(int k, int[] nums){
         this.k=k;
-        minHeap = new PriorityQueue<>();
-        for(int num:nums){
-            add(num);
+        arr = new ArrayList<>();
+
+        for(int i=0;i<=nums.length;i++){
+            arr.add(nums[i]);
         }
     }
     public int add(int val){
-        minHeap.offer(val);
-        if(minHeap.size()>k) minHeap.poll();
-        return minHeap.peek();
+        arr.add(val);
+        Collections.sort(arr);
+        return arr.get(arr.size()-k);
     }
 
     public static void main(String[] args) {
