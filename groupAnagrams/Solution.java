@@ -6,25 +6,27 @@ import java.util.Map;
 
 public class Solution {
     public static void main(String[] args) {
-        String[] strs = {"act","pots","tops","cat","stop","hat"};
+        String[] strs = { "act", "pots", "tops", "cat", "stop", "hat" };
         List<List<String>> ans = groupAnagrams(strs);
         System.err.println(ans);
     }
 
-    public static List<List<String>> groupAnagrams(String[] strs){
+    public static List<List<String>> groupAnagrams(String[] strs) {
 
-        Map<String, List<String>> res = new HashMap<>();
-        
-        for(String s:strs){
-            int[] count = new int[26];
-            for(char c: s.toCharArray()){
-                count[c-'a']++;
+        HashMap<String, List<String>> anagrams = new HashMap<>();
+
+        for (String s : strs) {
+            int[] freq = new int[26];
+
+            for (char c : s.toCharArray()) {
+                freq[c - 'a']++;
             }
-            String key = Arrays.toString(count);
-            res.putIfAbsent(key, new ArrayList<>());
-            res.get(key).add(s);
-        }
 
-        return new ArrayList<>(res.values());
+            String key = freq.toString();
+
+            anagrams.putIfAbsent(key, new ArrayList<>());
+            anagrams.get(key).add(s);
+        }
+        return new ArrayList<>(anagrams.values());
     }
 }
