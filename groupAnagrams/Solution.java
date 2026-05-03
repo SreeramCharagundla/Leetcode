@@ -1,8 +1,9 @@
+package groupAnagrams;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Solution {
     public static void main(String[] args) {
@@ -13,20 +14,20 @@ public class Solution {
 
     public static List<List<String>> groupAnagrams(String[] strs) {
 
-        HashMap<String, List<String>> anagrams = new HashMap<>();
+        HashMap<String, List<String>> mapOfAnagrams = new HashMap<>();
 
         for (String s : strs) {
-            int[] freq = new int[26];
+            int[] freqKey = new int[26];
 
             for (char c : s.toCharArray()) {
-                freq[c - 'a']++;
+                freqKey[c - 'a']++;
             }
-
-            String key = freq.toString();
-
-            anagrams.putIfAbsent(key, new ArrayList<>());
-            anagrams.get(key).add(s);
+            String key = Arrays.toString(freqKey);
+            System.out.println(key + " ");
+            mapOfAnagrams.putIfAbsent(key, new ArrayList<>());
+            mapOfAnagrams.get(key).add(s);
         }
-        return new ArrayList<>(anagrams.values());
+
+        return new ArrayList<>(mapOfAnagrams.values());
     }
 }

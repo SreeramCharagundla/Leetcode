@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
-        int[] arr = {1,2,3,1};
+        int[] arr = { 1, 2, 3, 1 };
 
         Boolean isValid = containsDuplicate(arr);
 
@@ -10,14 +10,12 @@ public class Solution {
     }
 
     private static Boolean containsDuplicate(int[] nums) {
-       Set<Integer> isUnique  = new HashSet<>();
+        Set<Integer> numSet = new HashSet<>();
 
-       for(int num:nums){
-            if(isUnique.contains(num))
-                return true;
-            isUnique.add(num);
-       }
+        for (int i : nums) {
+            numSet.add(i);
+        }
 
-        return false;
+        return (numSet.size() != nums.length) ? false : true;
     }
 }
