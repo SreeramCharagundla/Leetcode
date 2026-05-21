@@ -1,3 +1,5 @@
+package lengthOfLongestSubstring;
+
 import java.util.*;
 
 public class lengthOfLongestSubstring {
@@ -8,35 +10,28 @@ public class lengthOfLongestSubstring {
     }
 
     private static int LongestSubstring(String s) {
-        
-        Set<Character> charSet = new HashSet<>();
-        for(char c: s.toCharArray()){
-            charSet.add(c);
-        }
 
-        if(s.length()==charSet.size()) return s.length();
-        else if (charSet.size()==1) return 1;
+        if (s.length() <= 1)
+            return s.length();
 
-        Map<Character, Integer> chars = new HashMap<>();
-        int right = 0;
+        Map<Character, Integer> countMap = new HashMap<>();
         int left = 0;
+        int result = 0;
 
-        int res = 0;
+        for (int right = 0; right < s.length(); right++) {
+            char rightChar = s.charAt(right);
 
-        while(right<s.length()){
-            char r = s.charAt(right);
-            chars.put(r,chars.getOrDefault(r, 0)+1);
+            countMap.put(rightChar, countMap.getOrDefault(rightChar, 0) + 1);
 
-            while(chars.get(r)>1){
-                char l = s.charAt(left);
-                chars.put(l,chars.get(l)-1);
+            while (countMap.get(rightChar) > 1) {
+                char leftChar = s.charAt(left);
+                countMap.put(leftChar, countMap.get(leftChar) - 1);
                 left++;
             }
 
-            res = Math.max(res,right-left+1);
-            right++;
-        }
+            result = Math.max(result, right - left + 1);
 
-        return res;
+        }
+        return result;
     }
 }
