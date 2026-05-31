@@ -12,17 +12,19 @@ public class Solution {
     }
 
     public static int[] TwoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> indexMap = new HashMap<>();
+
+        HashMap<Integer, Integer> numMap = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
-            indexMap.put(nums[i], i);
+            numMap.put(nums[i], i);
         }
 
         for (int i = 0; i < nums.length; i++) {
+
             int toFind = target - nums[i];
 
-            if (indexMap.containsKey(toFind) && indexMap.get(toFind) != i) {
-                return new int[] { i, indexMap.get(toFind) };
+            if (numMap.containsKey(toFind) && numMap.get(toFind) != i) {
+                return new int[] { i, numMap.get(toFind) };
             }
         }
         return null;

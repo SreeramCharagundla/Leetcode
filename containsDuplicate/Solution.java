@@ -10,12 +10,15 @@ public class Solution {
     }
 
     private static Boolean containsDuplicate(int[] nums) {
+
         Set<Integer> numSet = new HashSet<>();
 
-        for (int i : nums) {
-            numSet.add(i);
+        for (int n : nums) {
+            if (!numSet.contains(n))
+                numSet.add(n);
+            else
+                return true;
         }
-
-        return (numSet.size() != nums.length) ? false : true;
+        return false;
     }
 }

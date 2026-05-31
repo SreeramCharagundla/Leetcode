@@ -11,15 +11,13 @@ public class Solution {
 
         int[] word = new int[26];
         for (char c : s.toCharArray()) {
-            int v = c - 'a';
-            word[v]++;
+            word[c - 'a']++;
         }
         for (char c : t.toCharArray()) {
-            int v = c - 'a';
-            word[v]--;
+            word[c - 'a']--;
         }
-        for (int i : word) {
-            if (i != 0)
+        for (int i = 0; i < 26; i++) {
+            if (word[i] != 0)
                 return false;
         }
         return true;

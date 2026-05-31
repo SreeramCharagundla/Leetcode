@@ -14,20 +14,25 @@ public class Solution {
 
     public static List<List<String>> groupAnagrams(String[] strs) {
 
-        HashMap<String, List<String>> mapOfAnagrams = new HashMap<>();
+        HashMap<String, List<String>> grouped = new HashMap<>();
 
         for (String s : strs) {
-            int[] freqKey = new int[26];
+
+            int[] chars = new int[26];
 
             for (char c : s.toCharArray()) {
-                freqKey[c - 'a']++;
+                chars[c - 'a']++;
             }
-            String key = Arrays.toString(freqKey);
-            System.out.println(key + " ");
-            mapOfAnagrams.putIfAbsent(key, new ArrayList<>());
-            mapOfAnagrams.get(key).add(s);
+
+            String key = Arrays.toString(chars);
+
+            if (!grouped.containsKey(key))
+                grouped.put(key, new ArrayList<>());
+
+            grouped.get(key).add(s);
+
         }
 
-        return new ArrayList<>(mapOfAnagrams.values());
+        return new ArrayList<>(grouped.values());
     }
 }

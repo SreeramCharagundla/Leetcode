@@ -7,25 +7,25 @@ public class Solution {
         System.out.println(ans);
     }
 
-    static boolean isAnagram(String s, String t){
-        if(s.length()!=t.length()) return false;
-        else{
-            int[] charFreq = new int[26];
-            char[] c1 = s.toCharArray();
-            char[] c2 = t.toCharArray();
-            for(int i=0;i<s.length();i++){
-                int a = c1[i]-'a';
-                int b = c2[i]-'a';
+    static boolean isAnagram(String s, String t) {
 
-                charFreq[a] += 1;
-                charFreq[b] -= 1; 
-            }
+        if (s.length() != t.length())
+            return false;
 
-            for(int c: charFreq){
-                if(c!=0){return false;}
-            }
-            return true;
+        int[] charCounts = new int[26];
+
+        for (char ch : s.toCharArray()) {
+            charCounts[ch - 'a']++;
         }
-        
+
+        for (char ch : t.toCharArray()) {
+            charCounts[ch - 'a']++;
+        }
+
+        for (int count : charCounts) {
+            if (count != 0)
+                return false;
+        }
+        return true;
     }
 }
